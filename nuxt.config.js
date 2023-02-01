@@ -11,13 +11,23 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap',
+      },
+    ],
+  },
+  env: {
+    BASE_URL: 'https://api.themoviedb.org/3/',
+    ACCESS_TOKEN:
+      'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2JkZGZhNDE1ODAzMTBhMGExM2NhNDI3MDVhNjI0YSIsInN1YiI6IjYzZDhkZjBjYTZjMTA0MDA3YzA2NzI1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LnqcYfNUykNtnPhPExQb23_RVSS80Cri0yc9EziksRw',
+    API_KEY: '0cbddfa41580310a0a13ca42705a624a',
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '@/styles/main.css',
-  ],
+  css: ['@/styles/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -45,7 +55,12 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: '',
+    headers: {
+      common: {
+        Authorization: process.env.ACCESS_TOKEN,
+      },
+    },
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
