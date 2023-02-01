@@ -1,7 +1,8 @@
 export default {
-  setSearch(state, nextState) {
-    state.results = nextState.results
-    state.total_pages = nextState.total_pages
-    state.total_results = nextState.total_results
+  setSearchMovie(state, nextState) {
+    state.movies = nextState
+  },
+  setSearchTV(state, nextState) {
+    state.tvs = nextState
   },
 }

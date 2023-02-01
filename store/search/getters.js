@@ -1,5 +1,8 @@
 export default {
-  getSearch(state) {
-    return state.results
+  getSearchMovie(state) {
+    return state.movies
+  },
+  getSearchTV(state) {
+    return state.tvs
   },
 }
